@@ -5,6 +5,8 @@ You can checkout this demo https://github.com/oney/RCTWebRTCDemo
 
 Demo server: https://react-native-webrtc.herokuapp.com/
 
+SocketIO should be 1.3.5 or smaller
+
 # Deploy on Ec2
 
 ```sh

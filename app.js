@@ -11,15 +11,18 @@ var serverPort = (process.env.PORT  || 4443);
 var https = require('https');
 var http = require('http');
 var server;
+
 if (process.env.LOCAL) {
   server = https.createServer(options, app);
 } else {
   server = http.createServer(app);
 }
 var io = require('socket.io')(server);
+io.origins((origin, callback) => {
+  return callback(null, true);
+});
 
 var roomList = {};
-
 app.get('/', function(req, res){
   console.log('get /');
   res.sendFile(__dirname + '/index.html');
@@ -66,6 +69,7 @@ io.on('connection', function(socket){
 
   socket.on('exchange', function(data){
     console.log('exchange', data);
+    console.log('SOCKET ID'+socker.id);
     data.from = socket.id;
     var to = io.sockets.connected[data.to];
     to.emit('exchange', data);
