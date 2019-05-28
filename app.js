@@ -80,7 +80,7 @@ io.on('connection', function(socket){
 
   socket.on('exchange', function(data){
     console.log('exchange', data);
-    console.log('SOCKET ID'+socker.id);
+    console.log('SOCKET ID'+socket.id);
     data.from = socket.id;
     var to = io.sockets.connected[data.to];
     to.emit('exchange', data);
