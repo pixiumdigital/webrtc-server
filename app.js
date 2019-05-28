@@ -15,7 +15,7 @@ var server;
 if (process.env.LOCAL) {
   server = https.createServer(options, app);
 } else {
-  server = http.createServer(app);
+  server = https.createServer(options,app);
 }
 //var io = require('socket.io')(server);
 const io = require('socket.io')(server, {
