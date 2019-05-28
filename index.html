@@ -51,7 +51,7 @@ var localStream;
 function getLocalStream() {
   navigator.getUserMedia({ "audio": true, "video": true }, function (stream) {
     localStream = stream;
-    selfView.src = URL.createObjectURL(stream);
+    selfView.srcObject = stream;
     selfView.muted = true;
   }, logError);
 }
@@ -109,7 +109,7 @@ function createPC(socketId, isOffer) {
     var element = document.createElement('video');
     element.id = "remoteView" + socketId;
     element.autoplay = 'autoplay';
-    element.src = URL.createObjectURL(event.stream);
+    element.srcObject = event.stream;
     remoteViewContainer.appendChild(element);
   };
   pc.addStream(localStream);
