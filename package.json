@@ -16,7 +16,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.11.2",
-    "open": "0.0.5",
+    "open": "6.0.0",
     "socket.io": "4.5.3"
   }
 }
